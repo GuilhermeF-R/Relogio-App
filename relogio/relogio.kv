@@ -1,0 +1,74 @@
+#:kivy 2.2.1
+
+<HoraBox>:
+    Label:
+        text: ''
+        font_size: "60sp"
+        pos_hint: {"center_x": .5}
+<BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 165/255, 165/255, 165/255, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+BoxLayout:
+    canvas.before:
+        Color:
+            rgba: 165/255, 165/255, 165/255, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    orientation: 'vertical'  # Adicione esta linha para preencher a janela
+    HoraBox:
+        size_hint: 1, None
+        height: self.parent.height * 0.6
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        size_hint: 1, None
+        height: self.parent.height * 0.15
+        Button:
+            background_normal: 'imagens/documento.png'
+            size_hint: None, None
+            size: 100, 100
+            border: 1, 1, 1, 1
+        Button:
+            background_normal: 'imagens/clock.png'
+            size_hint: None, None
+            size: 100, 120
+            border: 1, 1, 1, 1
+        Button:
+            background_normal: 'imagens/motivação.png'
+            size_hint: None, None
+            size: 100, 100
+            border: 1, 1, 1, 1
+    BoxLayout:
+        size_hint: 1, None
+        height: self.parent.height * 0.25
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+            size_hint: 0.7, None
+            size: 300, 300
+            pos_hint: {"center_x": 0.57}
+            Button:
+                background_normal: 'imagens/alarme.png'
+                size_hint: None, None
+                size: 100, 100
+                border: 1, 1, 1, 1
+                on_press: app.botao_alarme(self)
+            Button:
+                background_normal: 'imagens/addalarme.png'
+                size_hint: None, None
+                size: 100, 100
+                border: 1, 1, 1, 1
+                on_press: app.botao_addalarme(self)
+            Button:
+                background_normal: 'imagens/parar.png'
+                size_hint: None, None
+                size: 100, 100
+                border: 1, 1, 1, 1
+                on_press: app.botao_parar(self)
+
